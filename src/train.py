@@ -5,10 +5,10 @@ import torch.cuda
 import torch.nn as nn
 import torch.optim as optim
 
-from dataloader import get_dataloader_and_vocab
-from model import get_model_class
-from training import Training
-from utils import get_lr_scheduler, save_vocab, load_yaml
+from word2vec.src.dataloader import get_dataloader_and_vocab
+from word2vec.src.model import get_model_class
+from word2vec.src.training import Training
+from word2vec.src.utils import get_lr_scheduler, save_vocab, load_yaml
 
 
 def train(config: dict):
@@ -63,6 +63,7 @@ def train(config: dict):
     )
 
     trainer.train()
+    trainer.save_model()
     trainer.save_loss()
     save_vocab(config['model_dir'], vocab)
 

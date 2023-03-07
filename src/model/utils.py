@@ -1,4 +1,4 @@
-from word2vec.model import CBOW, SkipGram
+from word2vec.src.model import CBOW, SkipGram
 
 
 def get_model_class(name: str):

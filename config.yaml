@@ -1,0 +1,16 @@
+model: 'CBOW'
+model_dir: 'artifacts'
+data_dir: 'data'
+
+epochs: 10
+batch_size: 64
+learning_rate: 0.05
+checkpoint_frequency: 1
+steps_train: 60
+steps_val: 60
+
+n_words: 4
+min_word_frequency: 50
+max_sequence_length: 256
+embed_size: 50
+embed_max_norm: 1

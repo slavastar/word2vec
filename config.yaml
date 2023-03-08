@@ -1,4 +1,4 @@
-model: 'CBOW'
+model: 'SkipGram' # {'CBOW', 'SkipGram'}
 model_dir: 'artifacts'
 data_dir: 'data'
 

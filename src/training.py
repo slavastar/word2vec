@@ -2,6 +2,9 @@ import os
 import json
 import numpy as np
 import torch
+import torch.nn.functional as F
+
+from word2vec.src.model import SkipGram
 
 
 class Training:
@@ -51,6 +54,8 @@ class Training:
 
             self.optimizer.zero_grad()
             outputs = self.model(inputs)
+            if isinstance(self.model, SkipGram):
+                labels = F.one_hot(labels, num_classes=outputs.shape[1]).sum(1).float()
             loss = self.criterion(outputs, labels)
             loss.backward()
             self.optimizer.step()
@@ -73,6 +78,8 @@ class Training:
                 labels = data[1].to(self.device)
 
                 outputs = self.model(inputs)
+                if isinstance(self.model, SkipGram):
+                    labels = F.one_hot(labels, num_classes=outputs.shape[1]).sum(1).float()
                 loss = self.criterion(outputs, labels)
 
                 losses.append(loss.item())

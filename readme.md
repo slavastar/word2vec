@@ -12,9 +12,9 @@ The hyperparameters of the model can be found in the `config.yaml` file.
 
 * `src/`
   * `model/`
-    * cbow.py - implemented CBOW model.
-    * skip_gram.py - implemented Skip-Gram model.
-    * utils.py - contains common function used for models.
+    * `cbow.py` - implemented CBOW model.
+    * `skip_gram.py` - implemented Skip-Gram model.
+    * `utils.py` - contains common function used for models.
   * `dataloader.py` - contains functions for text preprocessing and collecting a dataset.
   * `train.py` - contains a full pipeline for training and saving the model.
   * `training.py` - contains a wrapper for training a model.
